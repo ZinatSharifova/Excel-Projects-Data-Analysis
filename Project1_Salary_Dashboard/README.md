@@ -27,9 +27,29 @@ Instead of standard slicers, I used **Data Validation** to create custom dropdow
 * **The Logic:** When a user selects a value from the dropdown, it triggers a ripple effect across the analysis sheets.
 * **Dynamic Axis:** The charts are linked to these specific input cells, allowing the X and Y axes to update their values instantaneously based on the selection.
 
-### 2. Advanced Formulas (The Engine)
-To make the dashboard interactive, I used array formulas and complex logic to filter the raw data in the background.
+### 2. The Multi-Sheet Analytical Engine
+The dashboard is powered by 4 specialized background sheets (**Title**, **Country**, **Type**, **Platform**) which serve as the data processing center:
 
-* **Median Salary Calculation:** I used a combination of `MEDIAN` and `IF` to ensure that only the salaries matching the selected criteria are calculated:
-```excel
-{=MEDIAN(IF(data_table[job_title]=Selected_Job_Title, data_table[salary]))}
+* **📂 Title Sheet:** This is the core analytical engine. Unlike a simple list, it dynamically calculates the **Median Salary** for each role based on user filters. It ensures that the dashboard reflects real-time market averages.
+* **🌍 Country Sheet:** Processes geographic data and maps salaries across different regions. 
+* **⚙️ Type Sheet:** Raw data for job types was inconsistent. I built a text-search engine using `ISNUMBER(SEARCH(...))` to categorize messy strings into clean categories (Full-time, Contract, etc.).
+* **📊 Platform Sheet:** Aggregates job counts for LinkedIn, Indeed, and other boards, linking them directly to the platform bar chart.
+
+### 3. Advanced Formula Breakdown: The Dynamic Median
+The "heart" of the project is the **Dynamic Salary Calculator**. For example, in the **Title** sheet, I engineered a multi-criteria array formula that filters thousands of rows of data based on real-time user selections:
+<img width="734" height="298" alt="Screenshot (833)" src="https://github.com/user-attachments/assets/476c933f-e3f7-42a7-be91-f1a758e5257d" />
+### 💡 How this logic works:
+
+* **Comparative Analysis:** Even though the user selects one specific role in the dashboard, the **Title** sheet calculates the median for *all* job titles (Data Analyst, Scientist, Engineer, etc.) simultaneously. This allows the chart to show how the selected role's salary compares to others in the same market.
+* **User-Driven Filters:** The calculation is strictly bound to the **Country** and **Type** selected in the Data Validation dropdowns. If you change the country to "United Kingdom," every median value in the list updates instantly to reflect that specific market.
+* **Boolean Filtering:** The `*` symbol in the formula acts as an `AND` operator, ensuring the engine only picks rows that match all criteria (Title, Country, Type, and non-zero salary) at the same time.
+
+---
+
+## 📊 Dashboard Visualization (Salary Calculator Sheet)
+All the processed data from the background sheets flows into the **Salary Calculator** sheet, where the final visuals are rendered:
+
+* **Dynamic Charts:** The charts (Salary Distribution, Map, and Platforms) are built directly from these filtered values. As the backend sheets recalculate, the charts on the main dashboard update their shapes and scales automatically.
+* **The "Key Metric" Boxes:** At the bottom of the dashboard, I implemented **`XLOOKUP`** to extract specific values for the user's final selection:
+    * **Median Salary:** Uses `XLOOKUP` to find the exact salary for the selected role from the **Title** sheet.
+    * **Top Platform & Job Count:** Dynamically retrieves which site has the most postings and the total vacancy count for those specific criteria, providing a quick summary for the user.
