@@ -4,16 +4,16 @@ Explore my end-to-end data projects where I transform raw datasets into meaningf
 
 ## Global Salary Dashboard
 This project visualizes the landscape of data science compensation. It allows users to filter through various roles and experience levels to identify high-paying opportunities.
-[Checkout my work here](Project1_Salary-Dashboard.xlsx)
+[Checkout my work here](./Project1_Salary_Dashboard/)
 
-![Salary Dashboard Preview](salarydash.png)
+![Salary Dashboard Preview](./Project1_Salary_Dashboard/salarydash.png)
 
 
 ## Salary & Skills Market Analysis
 A deep-dive analysis focused on the correlation between specific technical skills and salary growth. This project utilizes complex data modeling to highlight the most valued assets in the current market.
-[Checkout my work here](Project2_Salary-Analysis.xlsx)
+[Checkout my work here](./Project2_Salary-Analysis/)
 
-![Technical Analysis Preview](skillsalary.png)
+![Technical Analysis Preview](./Project2_Salary-Analysis/skillsalary.png)
 
 ---
 ### ⚙️ Professional Toolkit:
