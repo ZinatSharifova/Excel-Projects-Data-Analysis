@@ -53,3 +53,22 @@ All the processed data from the background sheets flows into the **Salary Calcul
 * **The "Key Metric" Boxes:** At the bottom of the dashboard, I implemented **`XLOOKUP`** to extract specific values for the user's final selection:
     * **Median Salary:** Uses `XLOOKUP` to find the exact salary for the selected role from the **Title** sheet.
     * **Top Platform & Job Count:** Dynamically retrieves which site has the most postings and the total vacancy count for those specific criteria, providing a quick summary for the user.
+
+## 🏁 Project 1: Conclusion
+This project demonstrates how to transform a massive, messy dataset into a high-performance, interactive analytical tool. By engineering a custom "backend" with advanced array formulas, I achieved a level of flexibility and "live" interactivity that standard tools cannot provide. This dashboard serves as a bridge between raw data and actionable career insights.
+
+---
+
+## 🛠️ Comprehensive Excel Skills Applied (Project 1)
+
+Throughout this project, I utilized a wide array of advanced Excel techniques to ensure data integrity and dynamic performance:
+
+* **Advanced Dynamic Array Formulas:** Leveraged complex `{MEDIAN(IF(...))}` array logic to perform multi-criteria calculations across thousands of rows.
+* **Boolean Logic Engineering:** Used the `(Criteria1)*(Criteria2)` method within formulas to simulate advanced `AND` logic for filtering.
+* **Text Mining & Search:** Integrated `ISNUMBER(SEARCH())` functions to clean and categorize non-standardized text data (e.g., extracting job types from messy strings).
+* **Dynamic Data Retrieval:** Implemented **`XLOOKUP`** for instant data pulling into key metric summary boxes.
+* **Data Validation & UX Design:** Created intuitive dropdown menus as "triggers" for the dashboard’s backend engine.
+* **Relational Backend Structure:** Designed a modular multi-sheet architecture (**Title, Country, Type, Platform**) to act as a structured relational database within Excel.
+* **Conditional Data Aggregation:** Used `COUNTIFS` to build platform-specific job volume analyses.
+* **Dynamic Sorting:** Employed the `SORT(FILTER())` function combination to ensure geographic data always appears in an organized, user-friendly manner.
+* **Advanced Visualization:** Customized Bar Charts and Map Charts directly linked to dynamic calculation ranges for real-time visual updates.
