@@ -13,7 +13,7 @@ This project visualizes the landscape of data science compensation. It allows us
 A deep-dive analysis focused on the correlation between specific technical skills and salary growth. This project utilizes complex data modeling to highlight the most valued assets in the current market.
 [Checkout my work here](./Project2_Salary_Analysis/)
 
-![Technical Analysis Preview](./Project2_Salary-Analysis/skillsalary.png)
+![Technical Analysis Preview](./Project2_Salary_Analysis/skillsalary.png)
 
 ---
 ### ⚙️ Professional Toolkit:
